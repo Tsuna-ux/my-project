@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>結果画面</title>
+    <title>結果</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; min-height: 80vh; }
+        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 500px; text-align: center; }
+        h1 { color: #333; }
+        p { font-size: 1.2em; color: #555; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .success { color: #28a745; } /* Green for success */
+        .failure { color: #dc3545; } /* Red for failure */
+    </style>
 </head>
 <body>
-    <h2>{{ message }}</h2>
-    <br>
-    <a href="{{ url_for('home') }}">ログイン画面に戻る</a>
+    <div class="container">
+        <h1>結果</h1>
+        <p class="{{ 'success' if 'Welcome' in message or 'Registration successful' in message else 'failure' }}">{{ message }}</p>
+        <p><a href="/">ログインページに戻る</a></p>
+        <p><a href="/register">新規登録ページに戻る</a></p>
+    </div>
 </body>
 </html>
