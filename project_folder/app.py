@@ -42,7 +42,8 @@ def login():
         session['username'] = user.username
         return render_template('result.html', message=f"ようこそ、{username}さん！")
     else:
-        return render_template('result.html', message="ログイン失敗。ユーザー名またはパスワードを確認してください。")
+        flash("ログイン失敗。\nユーザー名またはパスワードを確認してください。")
+        return redirect(url_for('home'))
 
 @app.route('/logout')
 def logout():

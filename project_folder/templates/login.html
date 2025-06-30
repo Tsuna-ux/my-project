@@ -46,6 +46,15 @@
 <body>
     <div class="container">
         <h1>研修用ログイン</h1>
+        {% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+        <div>
+        
+                <font color="red">{{ message }}</font>
+            
+        </div>
+    {% endfor %}
+{% endwith %}
         <form action="/login" method="post" autocomplete="off">
             <label for="username">ユーザーID（6文字以上・半角英数字）:</label>
             <input type="text" id="username" name="username" minlength="6" pattern="^[a-zA-Z0-9]+$" required autocomplete="off">
